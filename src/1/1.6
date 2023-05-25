@@ -1,0 +1,15 @@
+--[[
+How can you check whether a value is
+a boolean without using the function
+`type()`?
+--]]
+
+Anything that isn't `nil` or `false` in
+Lua is by default a "truthy" value.
+Therefore you can use any logical statement:
+
+```
+print(not 0)    --> false
+if 1 then print() end    --> "\n"
+if not false then print() end    --> "\n"
+```

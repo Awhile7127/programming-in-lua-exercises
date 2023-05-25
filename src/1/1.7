@@ -1,0 +1,67 @@
+--[[
+Consider the expression:
+
+(x and y and (not z)) or ((not y) and x)
+
+Are the parentehses necessary - would you use
+them?
+--]]
+
+--[[
+Okay, so these are ternary operators.
+Lua does short-circuit evaluation,
+and I know that `and` holds more importance
+than other operators.
+I'm assuming that they're not needed,
+but let's check.
+--]]
+
+function tern(x, y, z)
+
+    -- (1 and 1 (and 0)) or ((0) and 1)
+    -- first can never be true
+    -- second can never be true
+    print((x and y and (not z)) or ((not y) and x))
+
+    -- (1 and 1 and 0 or 0 and 1)
+    print(x and y and not z or not y and x)
+end
+
+tern(1, 1, 1)    --> false, false
+tern(0, 0, 0)    --> false, false
+tern(1, 0, 1)    --> false, false
+tern(0, 1, 0)    --> false, false
+tern(0, 0, 1)    --> false, false
+tern(1, 0, 0)    --> false, false - why?
+
+--[[
+So... no, the parentheses aren't needed.
+That being said: I've changed my mind.
+Writing that second statement makes less sense
+in my head because I've used BODMAS to work out
+what order things are working in.
+It makes more sense to use nested if-else in my head
+(I prioritise readability), but if needed,
+add parentheses!
+--]]
+
+--[[
+The last call for tern confuses me.
+I figured `or` will always pick the truthy value,
+so why does `tern` return false if the second
+statement return true?
+--]]
+
+
+function tern2(x, y)
+    print(((not y) and x))
+end
+
+tern2(1, 0)
+
+
+--[[
+Figured it out.
+0 is truthy, so therefore not 0 is false.
+That expression evaluates as false and true.
+--]]

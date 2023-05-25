@@ -1,0 +1,52 @@
+--[[
+What is the value of the expression:
+
+type(nil) == nil
+
+Can you explain this result?
+--]]
+
+
+`type()` always returns a string, so therefore
+the expression must return value string.
+
+I'm assuming this will be an empty string,
+because there's no actual variable assignment.
+
+Actually, re-reading the expression has given me
+some clarity.
+From my experience, a double equals operand
+is a comparison operator (is that the term?),
+so `type()` has to return true, right?
+Because `nil` is its own data type?
+Let's see.
+
+---
+
+It returns `false`, though I'm not sure why.
+I'm going to test what `type(nil)` returns.
+
+So, it returns `nil`.
+I assume this is because `type()` returns a
+string?
+What happens if I try `type(type(nil))`?
+Yeah - it's a string.
+Therefore, `type(nil)` has to be a string
+whilst `nil` is its own data type.
+So, I think I was somewhat right in my original
+answer:
+
+- `==` has to "return" (what is the right term?)
+  a boolean
+- `type(nil)` has to return a string
+- `nil` is its own data type
+
+Ergo:
+
+```
+type(nil) == nil
+
+-- string == nil
+```
+
+Not the same types! :D

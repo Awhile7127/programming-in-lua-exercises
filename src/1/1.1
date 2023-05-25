@@ -1,0 +1,58 @@
+--[[
+Run the factorial example.
+What happens to your program if you enter
+a negative number?
+Modify the example to avoid this problem.
+
+What is a factorial?
+Can only be of a positive integer
+The product of all positive integers
+less than or equal to the provided number
+n! = n * (n - 1)!
+
+
+What's the original program?
+
+
+function fact(n)
+    if n == 0 then
+        return 1
+    else
+        return n * fact(n - 1)
+    end
+end
+
+
+What's the issue?
+
+"stack overflow": essentially a program using
+more memory than it's supposed to, because the
+amount of memory in the stack has been exceeded
+by function calls X deep.
+in this instance, caused by recursive functions
+because a negative number can never have a
+factorial?
+
+
+How do we fix it?
+
+Make the number positive by default, I think?
+Unsure whether this is what I'm supposed to do,
+but given what I understand of the maths:
+it makes sense.
+
+That being said, doesn't fit in with the logic
+of what's been covered in chapter 1 so far :shrug:
+--]]
+
+function fact(n)
+    n = math.abs(n)
+    if n == 0 then
+        return 1
+    else
+        return n * fact(n - 1)
+    end
+end
+
+
+print(fact(-500))    --> 0
