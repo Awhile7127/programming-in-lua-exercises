@@ -8,7 +8,7 @@ More than anything else: proof that I read programming books.
 Unfiltered, honest attempts at programming exercises detailing
 my thought processes and ways of solving problems.
 
-If your an employer, this is probably of particular relevance
+If you're an employer, this is probably of particular relevance
 to you. Enjoy! :)
 
 P.S: I'm only going to post what I've done for exercises which
